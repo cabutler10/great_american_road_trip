@@ -36,8 +36,23 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `r874uku99f4o`,
-        // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: 'FAJJ4Du0Xo3OAKzUnlDYE2y5iRM6yJZ9KcE2uHLgVA4',
+        accessToken: "FAJJ4Du0Xo3OAKzUnlDYE2y5iRM6yJZ9KcE2uHLgVA4",
+      },
+    },
+    "gatsby-plugin-emotion",
+    {
+      resolve: `gatsby-theme-material-ui`,
+      options: {
+        webFontsConfig: {
+          fonts: {
+            google: [
+              {
+                family: `Raleway`,
+                variants: [`300`, `400`, `500`],
+              },
+            ],
+          },
+        },
       },
     },
   ],
