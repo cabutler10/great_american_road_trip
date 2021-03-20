@@ -8,8 +8,8 @@ import Paper from "@material-ui/core/Paper"
 import Hidden from "@material-ui/core/Hidden"
 import Button from "@material-ui/core/Button"
 import Sidebar from "./Sidebar"
-// import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
-// import ChevronRightIcon from "@material-ui/icons/ChevronRight"
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
+import ChevronRightIcon from "@material-ui/icons/ChevronRight"
 
 const useStyles = makeStyles(theme => ({
   banner: {
@@ -253,9 +253,12 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Blog = ({ posts, numPages, currentPage }) => {
+const Blog = ({ posts }) => {
   const classes = useStyles()
-  console.log(posts)
+  const [currentPage, setCurrentPage] = React.useState(0)
+
+  const numPages = posts.length
+
   return (
     <>
       <div className={classes.blog}>
@@ -363,7 +366,7 @@ const Blog = ({ posts, numPages, currentPage }) => {
                 className={classes.paginationButton}
               >
                 <ChevronLeftIcon className={classes.marginRight} />
-                {t("common.previous")}
+                Previous
               </Link>
             ) : (
               <div className={classes.placeholder} />
@@ -388,7 +391,7 @@ const Blog = ({ posts, numPages, currentPage }) => {
                 rel="next"
                 className={classes.paginationButton}
               >
-                {t("common.next")}
+                Next
                 <ChevronRightIcon className={classes.marginLeft} />
               </Link>
             ) : (

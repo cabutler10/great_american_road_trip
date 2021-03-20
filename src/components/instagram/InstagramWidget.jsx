@@ -79,7 +79,7 @@ const InstagramWidget = () => {
 
   return (
     <div className={classes.root}>
-      {data.allInstaNode.edges.map((elem, idx) => (
+      {data?.allInstaNode.edges.map((elem, idx) => (
         <Link
           key={`instagram_photo_${idx}`}
           className={clsx(classes.flexItem, {
