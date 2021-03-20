@@ -1,7 +1,7 @@
 import { createMuiTheme } from "@material-ui/core/styles"
 
-const primary = "#0000FF"
-const secondary = "#000080"
+const primary = "#763242"
+const secondary = "#C09F7F"
 
 const theme = createMuiTheme({
   palette: {
@@ -11,6 +11,10 @@ const theme = createMuiTheme({
     secondary: {
       main: secondary,
     },
+  },
+  color: {
+    tan: "#D9CECB",
+    gray: "#565656",
   },
 })
 

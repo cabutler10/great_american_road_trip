@@ -7,44 +7,40 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
 import Header from "./header"
-import "./layout.css"
+import { makeStyles } from "@material-ui/styles"
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    height: "100vH",
+    display: "flex",
+    flexDirection: "column",
+  },
+  main: {
+    flexGrow: 1,
+    width: "100%",
+  },
+  footer: {
+    color: "#fff",
+    background: theme.palette.primary.main,
+    marginTop: `2rem`,
+    width: "100%",
+    textAlign: "center",
+    padding: 5,
+    fontSize: 12,
+  },
+}))
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+  const classes = useStyles()
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
-    </>
+    <div className={classes.root}>
+      <Header />
+      <main className={classes.main}>{children}</main>
+      <footer className={classes.footer}>
+        © {new Date().getFullYear()} Butler Web Development
+      </footer>
+    </div>
   )
 }
 

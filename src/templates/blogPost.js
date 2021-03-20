@@ -1,11 +1,9 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-
-import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const Blog = () => {
+const BlogPost = () => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -43,13 +41,7 @@ const Blog = () => {
               <div className="meta">
                 <span>Posted on {edge.node.publishedDate}</span>
               </div>
-              {edge.node.featuredImage && (
-                <Img
-                  className="featured"
-                  fluid={edge.node.featuredImage.fluid}
-                  alt={edge.node.title}
-                />
-              )}
+
               <p className="excerpt">
                 {/* {edge.node.excerpt.childMarkdownRemark.excerpt} */}
               </p>
@@ -64,7 +56,7 @@ const Blog = () => {
   )
 }
 
-export default Blog
+export default BlogPost
 
 // excerpt {
 //   childMarkdownRemark {

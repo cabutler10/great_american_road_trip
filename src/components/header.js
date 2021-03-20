@@ -1,42 +1,38 @@
 import * as React from "react"
-import PropTypes from "prop-types"
 import { Link } from "gatsby"
+import { makeStyles } from "@material-ui/core/styles"
+import AppBar from "@material-ui/core/AppBar"
+import Toolbar from "@material-ui/core/Toolbar"
+import Typography from "@material-ui/core/Typography"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
+const useStyles = makeStyles(theme => ({
+  link: {
+    textDecoration: "none",
+  },
+  title: {
+    color: "#fff",
+  },
+  appbar: {
+    boxShadow: "none",
+  },
+}))
+
+export default function Header() {
+  const classes = useStyles()
+
+  return (
+    <AppBar
+      position="static"
+      color="primary"
+      classes={{ root: classes.appbar }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
+      <Toolbar>
+        <Link to="/" className={classes.link}>
+          <Typography variant="h6" className={classes.title}>
+            Jeanne's Great American Road Trip
+          </Typography>
         </Link>
-      </h1>
-    </div>
-  </header>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+      </Toolbar>
+    </AppBar>
+  )
 }
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header

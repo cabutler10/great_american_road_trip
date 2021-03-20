@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: "Great Road Trip",
+    description: `Jeanne's Great American Road Trip`,
+    author: `ca.butler10@gmail.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -19,13 +19,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `jeannes great american road trip`,
+        short_name: `jeannes-blog`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#763242`,
+        theme_color: `#763242`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/car.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-gatsby-cloud`,
@@ -39,7 +39,14 @@ module.exports = {
         accessToken: "FAJJ4Du0Xo3OAKzUnlDYE2y5iRM6yJZ9KcE2uHLgVA4",
       },
     },
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `1789485453`,
+      },
+    },
     "gatsby-plugin-emotion",
+    "gatsby-plugin-top-layout",
     {
       resolve: `gatsby-theme-material-ui`,
       options: {
